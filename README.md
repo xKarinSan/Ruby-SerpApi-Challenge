@@ -18,3 +18,4 @@ I will update what I have done on each day inside this repository, as well as to
 - Reading up on Ruby on Rails
 - Reading up on SerpApi
 - Exploring on various ideas =)
+- And perhaps... experimenting :)
