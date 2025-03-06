@@ -1,4 +1,5 @@
 require_relative './ItemPackage.rb'
+require_relative './Logs.rb'
 require 'securerandom'
 require 'json'
 
@@ -6,13 +7,15 @@ class PackageFactory
     attr_accessor :factory_name
     # attr_accessor :orders
     # attr_accessor :package_storage
-    def initialize(factory_name)
+    def initialize(factory_name,logger)
         @factory_name = factory_name
         @orders = {}
+        @logger = logger
     end
 
     def create_item_package(name,contents,recipient_id)
         problems = []
+        res = {}
         if name == ""
             problems.append("Package name cannot be empty")
         end
@@ -25,42 +28,52 @@ class PackageFactory
         end
 
         if problems.length() > 0
-            return {
+            res = {
                 "package" => None,
                 "problems" => problems
             }
+            @logger.add_log(res,"POST")
+            return res
         end
 
-        new_package = ItemPackage.new(name,contents,recipient_id)
+        new_package = ItemPackage.new(name,contents,recipient_id,@logger)
         @orders[new_package.get_package_id] = new_package
 
-        return {
+        res = {
             "package" => new_package,
             "problems" => problems
         }
+        @logger.add_log(res,"POST")
+        return res
     end
 
     def send_package_order(package_id,recipient_id)
         if !@orders.key?(package_id)
+            @logger.add_log({"package_id"=>package_id,"recipient_id"=>recipient_id,"status"=>-1},"POST")
             return -1
         end
 
         current_package = @orders[package_id]
         if current_package.get_recipient != recipient_id
+            @logger.add_log({"package_id"=>package_id,"recipient_id"=>recipient_id,"status"=>-1},"POST")
             return -1
         end
 
         current_package.send_package(recipient_id)
+        @logger.add_log({"package_id"=>package_id,"recipient_id"=>recipient_id,"status"=>1},"POST")
         return 1
     end
 
     def track_package_order(package_id)
         if !@orders.key?(package_id)
+            @logger.add_log({"package_id"=>package_id,"package_status"=>{}},"GET")
             return {}
         end
 
         current_package = @orders[package_id]
-        return current_package.check_status
+        package_status = current_package.check_status
+        @logger.add_log({"package_id"=>package_id,"package_status"=>package_status},"GET")
+        return package_status
     end
 end
 

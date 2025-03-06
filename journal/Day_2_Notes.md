@@ -4,3 +4,9 @@ I came up with the example of package delivery while experimenting on the syntax
 - ```PackageFactory```: In this case, it would be a supplier which takes orders from customers, as well as to deliver the packages to said customers.
 
 If I were to link this examples to HTTP requests, the PackageFactory would represent the backend server, whereas the ItemPackage will represent the payload sent by the client.
+
+I also added the following classes in Logs.rb
+- ```LogItem```: It stores the log information such as the date of the log generated (timestamp), method (HTTP method) as well as the involved payloads
+- ```Logger```: It creates and stores logs after each activity is triggered, and they can be displayed.
+
+I decidede to add these logger classes for the sake of monitoring. Linking back to API developments, these are extremely crucial when debugging and troubleshooting due to the information that they have. In the code level, it usually tells us which line(s) are causing the error. 

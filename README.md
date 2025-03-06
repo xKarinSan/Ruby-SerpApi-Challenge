@@ -21,7 +21,10 @@ I will update what I have done on each day inside this repository, as well as to
 - And perhaps... experimenting :)
 
 ### 6/3/2025
-- Exploration of Ruby on Rails
+- Exploration of Ruby (sorry I meant Ruby, not Ruby on Rails)
 - Ideation =)
+
+### 6/4/2025
+- Exploration of Ruby on Rails (probably the simple CRUD)
 
 ### This repo is still under construction

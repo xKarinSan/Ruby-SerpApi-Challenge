@@ -1,3 +1,4 @@
+require_relative './Logs.rb'
 require 'securerandom'
 
 class ItemPackage
@@ -5,15 +6,18 @@ class ItemPackage
     attr_accessor :contents
     attr_accessor :status_code
     attr_accessor :recipient
-    def initialize(name, contents,recipient)
+    def initialize(name, contents,recipient,logger)
         @package_id = SecureRandom.hex(10)
         @name = name
         @contents = contents
         @status_code = 1
         @recipient = recipient
+        @logger = logger
         puts "#{name} is created!"
     end
+
     def get_package_id 
+        @logger.add_log({"package_id"=> @package_id},"GET")
         return @package_id
     end
 
@@ -32,27 +36,34 @@ class ItemPackage
         else
             status_message =  "Package is not successfully delivered!!"
         end
-        return {
+        
+        res = {
             "status_code" => @status_code,
             "message" => status_message
         }
+        @logger.add_log(res,"GET")
+        return res
     end
 
     def send_package(recipient_id)
         if recipient_id == ""
+            @logger.add_log({"recipient_id" => recipient_id, "status_code" => @status_code},"POST")
             return -1
         end
         @recipient = recipient_id
         @status_code = 2
+        @logger.add_log({"recipient_id" => @recipient, "status_code" => @status_code},"POST")
         return 1
     end
 
     def receive_package(recipient_id)
-        puts "recipient_id #{@recipient}"
         if recipient_id != @recipient
+            @status_code = -1
+            @logger.add_log({"recipient_id" => @recipient, "status_code" => @status_code},"GET")
             return -1
         end
         @status_code = 3
+        @logger.add_log({"recipient_id" => @recipient, "status_code" => @status_code},"GET")
         return 1
     end
 
