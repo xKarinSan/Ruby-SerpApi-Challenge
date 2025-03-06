@@ -1,0 +1,80 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all environment files.
+/.env*
+.env*.local
+
+# Ignore database and credentials
+/config/database.yml
+/config/credentials.yml.enc
+/config/master.key
+
+# Ignore logs and tempfiles
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore storage (uploaded files and SQLite databases)
+/storage/*
+!/storage/.keep
+/tmp/storage/*
+!/tmp/storage/
+!/tmp/storage/.keep
+
+# Ignore compiled assets and cache files
+/public/assets
+/public/packs
+/public/packs-test
+/public/uploads
+/tmp/cache/*
+!/tmp/cache/.keep
+
+# Ignore coverage reports
+/coverage/
+/spec/tmp
+/spec/examples.txt
+
+# Ignore IDE/system-specific files
+*.swp
+*.swo
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore Byebug command history
+.byebug_history
+
+# Ignore Node.js dependencies (if using Webpacker)
+node_modules/
+.yarn-integrity
+yarn-debug.log*
+yarn-error.log
+
+# Ignore Puma & Spring temp files
+/tmp/puma.state
+/tmp/pids/server.pid
+/tmp/sockets/*
+!/tmp/sockets/.keep
+
+# Ignore SimpleCov reports
+/coverage/
+
+# Ignore Turbo/Hotwire temporary files
+/.turbo-*
+
+# Ignore Environment normalization
+/vendor/bundle
+
+# Ignore RVM & Ruby settings
+.rvmrc
+/.ruby-gemset
+
+# Ignore SASS cache (if using Sprockets)
+/.sass-cache/
