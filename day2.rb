@@ -1,4 +1,5 @@
-require 'json'
+require_relative './classes/ItemPackage.rb'
+require_relative "./classes/PackageFactory.rb"
 
 puts "Welcome to day 2!"
 
@@ -44,4 +45,32 @@ def first_function_call
     puts package_a_new_status
 end
 
-first_function_call
+def factory_and_packages
+    test_factory = PackageFactory.new("Milk Factory")
+
+    customer_1 = "abc123"
+    thief_1 = "abcl23"
+
+    created_package_task = test_factory.create_item_package("Milk Delivery","Chocolate_milk",customer_1)
+    created_package = created_package_task["package"]
+    puts created_package
+    puts created_package.check_status
+
+    send_package_task = test_factory.send_package_order(created_package.get_package_id, customer_1)
+    puts send_package_task
+
+    track_package_task = test_factory.track_package_order(created_package.get_package_id)
+    puts track_package_task
+
+    steal_attempt = created_package.receive_package(thief_1)
+    puts steal_attempt
+
+    receive_attempt = created_package.receive_package(customer_1)
+    puts receive_attempt
+
+end
+
+
+
+# first_function_call
+factory_and_packages
