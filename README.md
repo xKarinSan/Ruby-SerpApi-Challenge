@@ -12,14 +12,15 @@ I will update what I have done on each day inside this repository, as well as to
 - MongoDb (Probably)
 
 ## 🗓 Schedule
-### 5/3/25
+<a href="https://github.com/xKarinSan/Ruby-SerpApi-Challenge/tree/main/journal">Here is the full journal of what is under the hood =) </a>
+### 5/3/2025
 - Installing Ruby on Rails on my device
 - Reading up on Ruby on Rails
 - Reading up on SerpApi
 - Exploring on various ideas =)
 - And perhaps... experimenting :)
 
-### 6/3/25
+### 6/3/2025
 - Exploration of Ruby on Rails
 - Ideation =)
 
