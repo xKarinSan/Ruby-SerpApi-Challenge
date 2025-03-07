@@ -16,3 +16,12 @@ According to the official documentation, I have learnt:
             - By the attribute name; because of ```attr_accessor```
         - Delete:
             - ```.destroy```: remove record from database
+
+I have also learnt that:
+- ```render``` tag is similar to rendering components in React.JS, after specifying the name of the component in the ```view``` folder
+
+
+I have the following questions:
+- How does the router work under the hood? (more towards visualisation)
+    - the routes are defined inside the ```routes.rb``` in the ```config``` folder of the project
+- Since the MVC architecture is for the full-stack application, what does the architecture of a Ruby on Rails project look-like for a pure backend server?
