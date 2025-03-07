@@ -25,3 +25,4 @@ I have the following questions:
 - How does the router work under the hood? (more towards visualisation)
     - the routes are defined inside the ```routes.rb``` in the ```config``` folder of the project
 - Since the MVC architecture is for the full-stack application, what does the architecture of a Ruby on Rails project look-like for a pure backend server?
+- Not only that but the documentation mentioned about database migration for SQL. How does it work if the database is a NoSQL database (especially for MongoDB)?
