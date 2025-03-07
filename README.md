@@ -24,7 +24,12 @@ I will update what I have done on each day inside this repository, as well as to
 - Exploration of Ruby (sorry I meant Ruby, not Ruby on Rails)
 - Ideation =)
 
-### 6/4/2025
+### 7/3/2025
 - Exploration of Ruby on Rails (probably the simple CRUD)
+
+### 8/3/2025
+- Explore logging for ruby on rails
+- SerpApi integration inside the code =)
+
 
 ### This repo is still under construction
