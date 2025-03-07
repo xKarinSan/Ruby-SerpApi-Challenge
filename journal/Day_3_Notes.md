@@ -26,3 +26,13 @@ I have the following questions:
     - the routes are defined inside the ```routes.rb``` in the ```config``` folder of the project
 - Since the MVC architecture is for the full-stack application, what does the architecture of a Ruby on Rails project look-like for a pure backend server?
 - Not only that but the documentation mentioned about database migration for SQL. How does it work if the database is a NoSQL database (especially for MongoDB)?
+
+
+I have also tried the following tutorial on youtube <a href ="https://www.youtube.com/watch?v=aigDyaxGsRo&t=46s">here</a>, to have a better grasp of creating a Ruby on Rails REST API. Here is what I have learnt:
+- Add a ```--api``` when creating a rails project like: ```rails new project_name --api``` to create a REST api for rails.
+- ```render json:``` is how json repsonses are rendered in the controller
+- ```@results.as_json(only:[:col1, col2])``` means to format the json response such that each row has only col1 and col2 displayed.
+
+After which, I have also tried to explore
+- error handling + error messages
+- 

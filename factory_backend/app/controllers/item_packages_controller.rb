@@ -5,7 +5,7 @@ class ItemPackagesController < ApplicationController
   def index
     @item_packages = ItemPackage.all
 
-    render json: @item_packages
+    render json: @item_packages.as_json(only:[:name,:contents])
   end
 
   # GET /item_packages/1
