@@ -4,13 +4,14 @@ class ItemPackagesController < ApplicationController
   # GET /item_packages
   def index
     @item_packages = ItemPackage.all
-
     render json: @item_packages.as_json(only:[:name,:contents])
   end
 
   # GET /item_packages/1
   def show
-    render json: @item_package
+    render json: @item_package.as_json(only:[:name,:contents])
+  rescue StandardError =>e 
+    render json: {error:e.message},status: :internal_server_error
   end
 
   # POST /item_packages
@@ -22,6 +23,12 @@ class ItemPackagesController < ApplicationController
     else
       render json: @item_package.errors, status: :unprocessable_entity
     end
+  rescue ActiveRecord::RecordInvalid => e
+    render json: { error: e.message }, status: :unprocessable_entity
+  rescue ActionController::ParameterMissing => e
+    render json: { error: "Required parameters are missing: #{e.message}" }, status: :bad_request
+  rescue StandardError => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   # PATCH/PUT /item_packages/1
@@ -31,6 +38,8 @@ class ItemPackagesController < ApplicationController
     else
       render json: @item_package.errors, status: :unprocessable_entity
     end
+  rescue StandardError =>e 
+    render json: {error:e.message},status: :internal_server_error
   end
 
   # DELETE /item_packages/1
@@ -42,10 +51,16 @@ class ItemPackagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item_package
       @item_package = ItemPackage.find(params.expect(:id))
+    rescue ActiveRecord::RecordNotFound
+      render json: {error:"Item package not found"},status: :not_found
+    rescue ActionController::ParameterMissing
+      render json: {error:"Missing required parameters"},status: :bad_request
     end
 
     # Only allow a list of trusted parameters through.
     def item_package_params
       params.expect(item_package: [ :name, :contents ])
+    rescue ActionController::ParameterMissing => e
+      render json: { error: "Required parameters are missing: #{e.message}" }, status: :bad_request
     end
 end

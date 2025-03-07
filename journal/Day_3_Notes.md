@@ -34,5 +34,11 @@ I have also tried the following tutorial on youtube <a href ="https://www.youtub
 - ```@results.as_json(only:[:col1, col2])``` means to format the json response such that each row has only col1 and col2 displayed.
 
 After which, I have also tried to explore
-- error handling + error messages
-- 
+- error handling
+- response messages
+
+And here they are:
+- error handling: instead of  ```try```, ```except``` and ```finally``` like it was in Python, it is ```begin```, ```rescue``` and ```ensure``` respectively, and there is also an ```else``` which catches any other errors that are not handled.
+- add the ```status``` like this: ```render json :@results, status: ok```, which means the response will be returned to the client with the repsonse code ``200``. It is found <a href="https://www.youtube.com/watch?v=36M2BSA2LYk">here</a>.
+- the error handling logic should also be in the functions at before_action
+- ```before_action```: a callback method before a controller takes action
