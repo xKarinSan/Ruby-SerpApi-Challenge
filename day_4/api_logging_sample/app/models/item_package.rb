@@ -1,0 +1,2 @@
+class ItemPackage < ApplicationRecord
+end
