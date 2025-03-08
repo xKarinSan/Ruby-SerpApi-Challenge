@@ -18,6 +18,9 @@ module ApiLoggingSample
 
     # Configuration for the application, engines, and railties goes here.
     #
+    config.logger = Logger.new('log/all.log')
+    config.log_level = :info
+
     # These settings can be overridden in specific environments using the files
     # in config/environments, which are processed later.
     #

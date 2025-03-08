@@ -4,7 +4,7 @@ class ItemPackagesController < ApplicationController
   # GET /item_packages
   def index
     @item_packages = ItemPackage.all
-
+    Rails.logger.info 'GET /item_packages 200'
     render json: @item_packages
   end
 
@@ -22,6 +22,12 @@ class ItemPackagesController < ApplicationController
     else
       render json: @item_package.errors, status: :unprocessable_entity
     end
+  rescue ActiveRecord::RecordInvalid => e
+    render json: { error: e.message }, status: :unprocessable_entity
+  rescue ActionController::ParameterMissing => e
+    render json: { error: "Required parameters are missing: #{e.message}" }, status: :bad_request
+  rescue StandardError => e
+    render json: { error: e.message }, status: :internal_server_error
   end
 
   # PATCH/PUT /item_packages/1
@@ -31,6 +37,8 @@ class ItemPackagesController < ApplicationController
     else
       render json: @item_package.errors, status: :unprocessable_entity
     end
+  rescue StandardError =>e 
+    render json: {error:e.message},status: :internal_server_error
   end
 
   # DELETE /item_packages/1
@@ -42,10 +50,20 @@ class ItemPackagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item_package
       @item_package = ItemPackage.find(params.expect(:id))
+      Rails.logger.info "Package of ##{params[:id]} accessed"
+    rescue ActiveRecord::RecordNotFound
+      Rails.logger.error "Package of ##{params[:id]} is not found"
+      render json: {error:"Item package not found"},status: :not_found and return
+    rescue ActionController::ParameterMissing
+      Rails.logger.error 'Missing required parameters';
+      render json: {error:"Missing required parameters"},status: :bad_request and return
     end
 
     # Only allow a list of trusted parameters through.
     def item_package_params
-      params.expect(item_package: [ :name, :contents ])
+    params.require(:item_package).permit(:name, :contents)
+    rescue ActionController::ParameterMissing => e
+      Rails.logger.error 'Missing required parameters';
+      render json: { error: "Required parameters are missing: #{e.message}" }, status: :bad_request and return
     end
 end
