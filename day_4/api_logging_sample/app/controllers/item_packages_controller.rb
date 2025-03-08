@@ -4,7 +4,6 @@ class ItemPackagesController < ApplicationController
   # GET /item_packages
   def index
     @item_packages = ItemPackage.all
-    Rails.logger.info 'GET /item_packages 200'
     render json: @item_packages
   end
 
@@ -16,14 +15,12 @@ class ItemPackagesController < ApplicationController
   # POST /item_packages
   def create
     @item_package = ItemPackage.new(item_package_params)
-
+    unless @item_package.valid?  # Check if validation fails
+      raise ActionController::ParameterMissing.new(@item_package)  
+    end
     if @item_package.save
       render json: @item_package, status: :created, location: @item_package
-    else
-      render json: @item_package.errors, status: :unprocessable_entity
     end
-  rescue ActiveRecord::RecordInvalid => e
-    render json: { error: e.message }, status: :unprocessable_entity
   rescue ActionController::ParameterMissing => e
     render json: { error: "Required parameters are missing: #{e.message}" }, status: :bad_request
   rescue StandardError => e
@@ -35,7 +32,7 @@ class ItemPackagesController < ApplicationController
     if @item_package.update(item_package_params)
       render json: @item_package
     else
-      render json: @item_package.errors, status: :unprocessable_entity
+      render StandardError
     end
   rescue StandardError =>e 
     render json: {error:e.message},status: :internal_server_error
@@ -43,27 +40,24 @@ class ItemPackagesController < ApplicationController
 
   # DELETE /item_packages/1
   def destroy
-    @item_package.destroy!
+    res = @item_package.destroy!
+    render json: {message:"Package deleted!"}
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item_package
       @item_package = ItemPackage.find(params.expect(:id))
-      Rails.logger.info "Package of ##{params[:id]} accessed"
     rescue ActiveRecord::RecordNotFound
-      Rails.logger.error "Package of ##{params[:id]} is not found"
+      Rails.logger.error "set_item_package - #{{"id" => params[:id]}} - package not found"
       render json: {error:"Item package not found"},status: :not_found and return
-    rescue ActionController::ParameterMissing
-      Rails.logger.error 'Missing required parameters';
-      render json: {error:"Missing required parameters"},status: :bad_request and return
     end
 
     # Only allow a list of trusted parameters through.
     def item_package_params
     params.require(:item_package).permit(:name, :contents)
     rescue ActionController::ParameterMissing => e
-      Rails.logger.error 'Missing required parameters';
+      Rails.logger.error 'item_package_params - Missing required parameters';
       render json: { error: "Required parameters are missing: #{e.message}" }, status: :bad_request and return
     end
 end

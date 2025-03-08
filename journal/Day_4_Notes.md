@@ -13,3 +13,8 @@ In order for the logging to make sense as well as to learn its best practices, I
     - fatal: affects whole program (this is in the event which app crashes)
 - Though logs are useful in debugging, they should NOT be used for monitoring as they will take up space, which can translate to high costs especially when these logs are stored in data storages. Instead, tools such as Amazon Cloud Watch should be used for monitoring, as they contain the relevant metrics (ie: GPU usage and number of requests) required for monitoring.
 - Properly structuring logs. An example would be ```POST /endpoint 404 Endpoint not found```. This log would show the HTTP method used, as well as the endpoint accessed and the error message.
+
+
+While implementing the logging, one of the challenges I faced was proper error handling for the REST API endpoints. What I have learnt:
+- raise the error to redirect the flow to the rescue statement with that error
+- add ```and return``` to prevent more than one renders, which lead multiple renders in 1 action
