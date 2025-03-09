@@ -17,3 +17,8 @@ Based on that video, the rough flow is usually:
 - format the data of each row such that it is ready
 
 The folow is similar for scraping dynamic pages, except that selenium is being used to simulate users finding the specific tags, as well as actions to click on buttons.
+
+I have attempted to create an ecommerce web scraper. There were challenges that I faced and overcame
+- Familarising myself with selenium
+- Inspecting the elements for the web page to extract out ceertain information
+- Syntax-related (as I am fairly new to Ruby), I am confident that I can be familar with Ruby in due time =)
