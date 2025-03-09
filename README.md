@@ -31,5 +31,8 @@ I will update what I have done on each day inside this repository, as well as to
 - Explore logging for ruby on rails
 - SerpApi integration inside the code =)
 
+### 9/3/2025
+- A random project?
+- Tidying up of this repo
 
 ### This repo is still under construction
