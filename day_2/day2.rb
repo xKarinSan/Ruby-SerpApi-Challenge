@@ -54,7 +54,7 @@ def factory_and_packages
     thief_1 = "abcl23"
 
     created_package_task = test_factory.create_item_package("Milk Delivery","Chocolate_milk",customer_1)
-    created_package = created_package_task["package"]
+    created_package = created_package_task[:package]
     # puts created_package
     # puts created_package.check_status
 

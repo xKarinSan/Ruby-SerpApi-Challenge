@@ -17,7 +17,7 @@ class ItemPackage
     end
 
     def get_package_id 
-        @logger.add_log({"package_id"=> @package_id},"GET")
+        @logger.add_log({:package_id=> @package_id},"GET")
         return @package_id
     end
 
@@ -38,8 +38,8 @@ class ItemPackage
         end
         
         res = {
-            "status_code" => @status_code,
-            "message" => status_message
+            :status_code => @status_code,
+            :message => status_message
         }
         @logger.add_log(res,"GET")
         return res
@@ -48,13 +48,13 @@ class ItemPackage
     def send_package(recipient_id)
         if recipient_id == ""
             puts "[ItemPackage][send_package] There is no recipient ID."
-            @logger.add_log({"recipient_id" => recipient_id, "status_code" => @status_code},"POST")
+            @logger.add_log({:recipient_id => recipient_id, :status_code => @status_code},"POST")
             return -1
         end
         @recipient = recipient_id
         @status_code = 2
         puts "[ItemPackage][send_pacakge] Package is delivered."
-        @logger.add_log({"recipient_id" => @recipient, "status_code" => @status_code},"POST")
+        @logger.add_log({:recipient_id => @recipient, :status_code => @status_code},"POST")
         return 1
     end
 
@@ -62,12 +62,12 @@ class ItemPackage
         if recipient_id != @recipient
             @status_code = -1
             puts "[ItemPackage][receive_package] Wrong recipient."
-            @logger.add_log({"recipient_id" => @recipient, "status_code" => @status_code},"GET")
+            @logger.add_log({:recipient_id => @recipient, :status_code => @status_code},"GET")
             return -1
         end
         @status_code = 3
         puts "[ItemPackage][receive_package] Package succssfully received."
-        @logger.add_log({"recipient_id" => @recipient, "status_code" => @status_code},"GET")
+        @logger.add_log({:recipient_id => @recipient, :status_code => @status_code},"GET")
         return 1
     end
 

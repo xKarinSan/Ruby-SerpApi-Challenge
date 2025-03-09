@@ -7,7 +7,7 @@ class WebScraper
         @current_platform_name = ""
 
         @platform_names = {
-            "shopee" => "https://shopee.sg/search?keyword=",
+            "amazon" => "https://amazon.sg/s?k=",
             "lazada" => "https://www.lazada.sg/tag/"
         }
         @query_words = ""
@@ -43,7 +43,6 @@ class WebScraper
     end
 
     def scrape_lazada
-        puts "Starting on lazada"
         driver = self.start_driver
         lazada_listings = []
         counter = 0
@@ -51,7 +50,6 @@ class WebScraper
 
         while counter < @page_limit
             search_url = "#{@platform_names['lazada']}#{lazada_query}?page=#{counter+1}"
-            puts search_url
             puts "#{counter+1}/#{@page_limit}"
             driver.get search_url
 
@@ -62,17 +60,40 @@ class WebScraper
                 item_price = product.find_element(:css, '.ooOxS').text rescue "N/A"
                 item_country = product.find_element(:css, '.oa6ri').text rescue "N/A"
                 image_source = product.find_element(:tag_name, 'img').attribute('src') rescue "N/A"
-                lazada_listings <<  {"item_name"=>item_name, "item_price"=>item_price, "item_country"=>item_country,"image_source"=>image_source}
+                lazada_listings <<  {item_name: item_name, item_price: item_price, item_country: item_country, image_source: image_source}
             end
             counter += 1        
         end
         return lazada_listings
       end
 
-    def scrape_shopee
+
+    def scrape_amazon
         driver = self.start_driver
-        shopee_listings = []
+        amazon_listings = []
+        counter = 0
+        amazon_query = @query_words.split(/ /).join("+")
+
+        while counter < @page_limit
+            search_url = "#{@platform_names['amazon']}#{amazon_query}&page=#{counter+1}"
+            puts "#{counter+1}/#{@page_limit}"
+            driver.get search_url
+
+            product_containers = driver.find_elements(:css,'div.s-card-container')
+            # puts product_containers
+            product_containers.each do |product|
+                item_name = product.find_element(:css, "h2.a-size-base-plus.a-spacing-none.a-color-base.a-text-normal").text                
+                whole_num_price = product.find_element(:css, '.a-price-whole').text rescue "0"
+                decimal_price = product.find_element(:css, '.a-price-fraction').text rescue "00"
+                item_price = "#{whole_num_price}.#{decimal_price}"
+                image_source = product.find_element(:tag_name, 'img').attribute('src') rescue "N/A"
+                amazon_listings <<  {item_name: item_name, item_price: item_price, image_source: image_source}
+            end
+            counter += 1
+        end
+        return amazon_listings
     end
+
     def scrape_platform
         scraped_items = []
         puts "Scraping ..."
@@ -87,10 +108,11 @@ class WebScraper
 
         case @current_platform_name
 
-        when "shopee"
-            scraped_items = ScrapeShopee
+        when "amazon"
+            scraped_items = self.scrape_amazon
         when "lazada"
             scraped_items = self.scrape_lazada
+
         return scraped_items
     end
 
