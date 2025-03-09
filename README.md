@@ -1,38 +1,118 @@
-# 🎯 Ruby X SerpApi Challenge
+# 🎯 Ruby x SerpApi Challenge  
 
-## ✌️ Introduction
-Hi, I have recently came across this web scraper called SerpApi. From a glance, it looks very interesting and thus I have decided that I would like to try using it! 
-Not only that, but to make this challenge fun, as well as to improve how I pick up unfamiliar technologies, I will be experimenting on both Ruby on Rails and SerpApi.
-I will update what I have done on each day inside this repository, as well as to consolidate my learnings =)
+## ✌️ Introduction  
+I recently came across **SerpApi**, a web scraper that looks quite interesting. To explore it further, I've decided to **challenge myself** by experimenting with both **Ruby** and **SerpApi**, while also improving how I pick up unfamiliar technologies.  
 
-## ⚙️ Technologies
-- Ruby on Rails
-- SerpApi
-- DigitalOcean (deployment)
-- MongoDb (Probably)
+This repository documents my **daily progress**, learnings, and experiments, including integrating SerpApi with **Ruby on Rails** and potentially deploying on **DigitalOcean**. 🚀  
 
-## 🗓 Schedule
-<a href="https://github.com/xKarinSan/Ruby-SerpApi-Challenge/tree/main/journal">Here is the full journal of what is under the hood =) </a>
-### 5/3/2025
-- Installing Ruby on Rails on my device
-- Reading up on Ruby on Rails
-- Reading up on SerpApi
-- Exploring on various ideas =)
-- And perhaps... experimenting :)
+---
 
-### 6/3/2025
-- Exploration of Ruby (sorry I meant Ruby, not Ruby on Rails)
-- Ideation =)
+## ⚙️ Technologies Used  
+- **Ruby on Rails** 🏗  
+- **SerpApi** 🔍  
+- **DigitalOcean** (for deployment) ☁  
+- **MongoDB** (possibly) 🗄  
 
-### 7/3/2025
-- Exploration of Ruby on Rails (probably the simple CRUD)
+---
 
-### 8/3/2025
-- Explore logging for ruby on rails
-- SerpApi integration inside the code =)
+## 🗓 Challenge Schedule  
+📌 **[Click here for the full journal!](https://github.com/xKarinSan/Ruby-SerpApi-Challenge/tree/main/journal)**  
 
-### 9/3/2025
-- A random project?
-- Tidying up of this repo
+### **🗓 5/3/2025 - Setup & Research**  
+- Installing **Ruby on Rails** 🛠  
+- Researching **Ruby on Rails** 📚  
+- Learning about **SerpApi** 🔎  
+- Brainstorming & exploring ideas 💡  
+- Experimenting with basic implementations ✨  
 
-### This repo is still under construction
+### **🗓 6/3/2025 - Ruby Exploration & Ideation**  
+- Deep dive into **Ruby (not Rails)**  
+- Brainstorming possible project ideas 🤔  
+
+### **🗓 7/3/2025 - Ruby on Rails Exploration**  
+- Setting up a basic **Rails project**  
+- Implementing **CRUD operations** (Create, Read, Update, Delete) 🔄  
+
+### **🗓 8/3/2025 - Logging & API Integration**  
+- Implementing **logging** in Ruby on Rails 📝  
+- Integrating **SerpApi** into the project 🔗  
+
+### **🗓 9/3/2025 - Mini Project & Repository Cleanup**  
+- Creating a **random project (e.g., an e-commerce scraper)** 🛍  
+- Tidying up the repository for better structure 📁  
+
+---
+
+## 📂 Project Contents & How to Run  
+
+### **Prerequisites**  
+Ensure you have the following installed on your machine:  
+- **Ruby**  
+- **Rails**  
+- **Bundler** (for managing dependencies)  
+
+### **Getting Started**  
+1️⃣ Clone this repository:  
+   ```sh
+   git clone https://github.com/xKarinSan/Ruby-SerpApi-Challenge.git
+   cd Ruby-SerpApi-Challenge
+   ```  
+   
+2️⃣ Navigate to the corresponding **day's folder**:  
+   ```sh
+   cd day_X
+   ```  
+
+3️⃣ Install dependencies:  
+   ```sh
+   gem install google_search_results dotenv
+   ```  
+
+4️⃣ (If required) Set up your **environment variables** in a `.env` file:  
+   ```sh
+   SERPAPI_API_KEY = <your_serpapi_api_key>
+   ```  
+
+5️⃣ Run the script:  
+   ```sh
+   ruby script_name.rb
+   ```  
+
+---
+
+## 📌 Daily Logs  
+
+### **📅 Day 1 (5/3/2025) - Setup**  
+No major coding done, just setting up the environment.  
+
+### **📅 Day 2 (6/3/2025) - Object-Oriented Programming (OOP) in Ruby**  
+💻 **Run the simulation:**  
+```sh
+cd day_2
+ruby day2.rb
+```  
+
+### **📅 Day 3 (7/3/2025) - Ruby API & Full-Stack Boilerplate**  
+- Setting up **Rails boilerplate** for full-stack development.  
+
+### **📅 Day 4 (8/3/2025) - SerpAPI Trial**  
+🔧 **How to Run:**  
+```sh
+cd day_4
+gem install google_search_results dotenv
+echo "SERPAPI_API_KEY=<your_key>" > .env
+ruby serpapi_trial.rb
+```  
+
+### **📅 Day 5 (9/3/2025) - Continued API Exploration**  
+🚀 **Running the script:**  
+```sh
+cd day_5
+gem install google_search_results dotenv
+ruby day5.rb
+```  
+
+---
+
+## 🚧 Work in Progress  
+This project is still **under construction** 🚧! More features and updates will be added as I progress. Stay tuned! 👀  

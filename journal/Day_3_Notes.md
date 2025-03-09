@@ -1,4 +1,4 @@
-## 7/3/25 Summary
+## 7/3/25 Entry
 I first tried to pick up Ruby on Rails by understanding in terms of how it is similar to other frameworks in other lanugages. According to the documentation <a href="https://guides.rubyonrails.org/getting_started.html">here</a>, it seems to use the MVC architecture, similarly to C# WPF.
 
 According to the official documentation, I have learnt:
@@ -42,3 +42,5 @@ And here they are:
 - add the ```status``` like this: ```render json :@results, status: ok```, which means the response will be returned to the client with the repsonse code ``200``. It is found <a href="https://www.youtube.com/watch?v=36M2BSA2LYk">here</a>.
 - the error handling logic should also be in the functions at before_action
 - ```before_action```: a callback method before a controller takes action
+
+***TL;DR: Learned **Ruby on Rails** by comparing it to other frameworks, exploring **MVC architecture, database operations, REST API creation, error handling, and response messages**, while raising questions about **routing, backend-only architecture, and NoSQL migrations**. 🚀***

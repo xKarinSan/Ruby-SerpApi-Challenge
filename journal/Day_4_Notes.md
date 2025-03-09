@@ -1,4 +1,4 @@
-## 8/3/25 Summary
+## 8/3/25 Entry
 I tried to understand logging in the context of Ruby on Rails, and attempted implementing because it is important for maintenance and troubleshooting for events such as server crashing as well as API failing.  
 
 This is the site which I tried to figure out how to log. (https://betterstack.com/community/guides/logging/how-to-start-logging-with-ruby-on-rails/#step-6-configuring-logger). I have learnt that:
@@ -26,3 +26,5 @@ As SerpApi requires a an API, I would need to pick up on how to access environme
 When I tried the youtube search use case with the sample code on SerpApi's official website, it did not work because there is an error message which states that it lacks the parameter 'q'. As such, I went to search the code under the hood (inside the gem) and realised that 'q' means query. This issue was resolved after I added 'q' inside the parameters json.
 
 Not only that but when I experimented with SerpApi, I realised that they also have a sandbox page in the web, which is an interesting feature, as not only I can experiment their API there, I can also intergrate the code from the sandbox page (which allows exporting of code) into my codebase.
+
+***TL;DR: Explored logging in Ruby on Rails, learning about built-in logging functions, log levels, and best practices while implementing error handling for REST APIs; also figured out how to securely use environment variables for SerpApi and resolved a missing query parameter issue by inspecting the gem's source code. 🚀***

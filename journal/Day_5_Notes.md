@@ -1,4 +1,4 @@
-## 8/3/25 Summary
+## 8/3/25 Entry
 After reading up on web scraping as part of SerpApi's domain, I have decided to build a web-scraper for e-commerce in order to help users make informed decisions.
 
 As I do not have much experience in web scraping, but roughly have an idea on how to do it, I watched this <a href="https://www.youtube.com/watch?v=GnVZexqtosc">video</a> to learn the ruby implementation of a simple web scraper. 
@@ -22,3 +22,5 @@ I have attempted to create an ecommerce web scraper. There were challenges that 
 - Familarising myself with selenium
 - Inspecting the elements for the web page to extract out ceertain information
 - Syntax-related (as I am fairly new to Ruby), I am confident that I can be familar with Ruby in due time =)
+
+***TL;DR: Decided to build an e-commerce web scraper using Ruby, learning about HTTParty, Nokogiri, CSV, and Selenium WebDriver; overcame challenges in Selenium usage, HTML element inspection, and Ruby syntax, gaining confidence in the language. 🚀***
