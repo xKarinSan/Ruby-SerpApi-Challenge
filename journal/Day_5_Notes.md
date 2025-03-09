@@ -15,3 +15,5 @@ Based on that video, the rough flow is usually:
 - use a write operation for CSV: to write the scraped data in this file
 - loop through through each page and narrow down to the relevant HTML elements of the data to be picked out
 - format the data of each row such that it is ready
+
+The folow is similar for scraping dynamic pages, except that selenium is being used to simulate users finding the specific tags, as well as actions to click on buttons.

@@ -7,7 +7,7 @@ def scrape_static_pages()
         'books.csv',
         'w+',
         write_headers: true,
-        headers: %w[Title, Price, Categories]
+        headers: %w[Title Price Categories]
       ) do |csv|
     10.times do |i|
         res = HTTParty.get("https://books.toscrape.com/catalogue/page-#{i+1}.html")
