@@ -5,4 +5,5 @@ Here are the contents of each day:
 - <a href="https://github.com/xKarinSan/Ruby-SerpApi-Challenge/blob/main/journal/Day_1_Notes.md">Day 1 (5/3/2025)</a>
 - <a href="https://github.com/xKarinSan/Ruby-SerpApi-Challenge/blob/main/journal/Day_2_Notes.md">Day 2 (6/3/2025)</a>
 - <a href="https://github.com/xKarinSan/Ruby-SerpApi-Challenge/blob/main/journal/Day_3_Notes.md">Day 3 (7/3/2025)</a>
-- And more!
+- <a href="https://github.com/xKarinSan/Ruby-SerpApi-Challenge/blob/main/journal/Day_4_Notes.md">Day 4 (8/3/2025)</a>
+- <a href="https://github.com/xKarinSan/Ruby-SerpApi-Challenge/blob/main/journal/Day_5_Notes.md">Day 5 (9/3/2025)</a>
