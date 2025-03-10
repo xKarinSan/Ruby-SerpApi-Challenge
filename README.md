@@ -10,7 +10,7 @@ This repository documents my **daily progress**, learnings, and experiments, inc
 ## ⚙️ Technologies Used  
 - **Ruby on Rails** 🏗  
 - **SerpApi** 🔍  
-- **DigitalOcean** (for deployment) ☁  
+- **DigitalOcean** (for deployment) ☁  (Perhaps in future)
 - **MongoDB** (possibly) 🗄  
 
 ---
